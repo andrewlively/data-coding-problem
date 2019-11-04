@@ -1,0 +1,43 @@
+{
+  "name": "data-coding-problem",
+  "version": "1.0.0",
+  "description": "My solution to a data coding problem",
+  "main": "build/index.js",
+  "repository": "https://github.com/andrewlively/data-coding-problem",
+  "author": "Andrew Lively <andrew@lively.software>",
+  "license": "Unlicensed",
+  "private": true,
+  "scripts": {
+    "start": "node build/index.js",
+    "compile": "./node_modules/.bin/tsc",
+    "compile:dev": "./node_modules/.bin/tsc --watch",
+    "lint": "./node_modules/.bin/tslint -c tslint.json --fix 'src/**/*.ts'",
+    "prettier": "./node_modules/.bin/prettier src/**/*.ts --write",
+    "test": "jest --silent",
+    "test:coverage": "jest --silent --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run prettier && git add -A"
+    }
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/constants.ts"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.6",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.6.4"
+  }
+}
